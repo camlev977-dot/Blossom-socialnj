@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!-- GitHub Pages ready: save this file as index.html in the root of your repository -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blossom Social</title>
+  <style>
+    :root {
+      --pink-50: #fff7fb;
+      --pink-100: #fdebf4;
+      --pink-200: #f9d7e7;
+      --pink-300: #f4bfd8;
+      --pink-400: #ea8fba;
+      --pink-500: #df6ca4;
+      --pink-600: #c9558d;
+      --rose-900: #5f3a4a;
+      --text: #4d3a43;
+      --white: #ffffff;
+      --shadow: 0 18px 40px rgba(223, 108, 164, 0.12);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.95), rgba(255,255,255,0.55) 30%, transparent 55%),
+        linear-gradient(180deg, var(--pink-50), #fff0f7 45%, #fff8fc 100%);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 84px 0 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--white);
+      color: var(--pink-600);
+      border: 1px solid var(--pink-200);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: 1;
+      color: var(--pink-600);
+      margin-bottom: 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .subheading {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1.12rem;
+      color: var(--rose-900);
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--pink-600);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--pink-600);
+      border: 1px solid var(--pink-200);
+    }
+
+    section {
+      padding: 24px 0 70px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 14px;
+      color: var(--rose-900);
+      font-size: 2rem;
+    }
+
+    .section-copy {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 32px;
+      color: #6c5560;
+    }
+
+    .promo {
+      background: linear-gradient(135deg, #fff, var(--pink-100));
+      border: 1px solid var(--pink-200);
+      border-radius: 28px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      margin: 0 auto 28px;
+      max-width: 800px;
+    }
+
+    .promo strong {
+      color: var(--pink-600);
+      font-size: 1.3rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--pink-200);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card h3 {
+      font-size: 1.45rem;
+      color: var(--rose-900);
+      margin-bottom: 8px;
+    }
+
+    .card .tag {
+      color: #866874;
+      min-height: 48px;
+      margin-bottom: 14px;
+    }
+
+    .price {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--pink-600);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .price span {
+      font-size: 1rem;
+      color: #755967;
+      font-weight: 600;
+    }
+
+    .features {
+      list-style: none;
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+      color: #5c4952;
+    }
+
+    .features li {
+      padding-left: 26px;
+      position: relative;
+    }
+
+    .features li::before {
+      content: "✿";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--pink-500);
+      font-size: 0.95rem;
+    }
+
+    .addon {
+      margin-top: 26px;
+      background: var(--white);
+      border: 1px solid var(--pink-200);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .addon h3 {
+      color: var(--rose-900);
+      margin-bottom: 8px;
+      font-size: 1.45rem;
+    }
+
+    .addon .addon-price {
+      color: var(--pink-600);
+      font-weight: 800;
+      font-size: 2.3rem;
+      margin: 8px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--pink-200);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .mini-card h4 {
+      margin-bottom: 8px;
+      color: var(--rose-900);
+      font-size: 1.08rem;
+    }
+
+    .contact {
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(253,235,244,0.85));
+      border: 1px solid var(--pink-200);
+      border-radius: 28px;
+      padding: 36px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact p {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .contact a {
+      color: var(--pink-600);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 28px 0 50px;
+      text-align: center;
+      color: #846a76;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .pricing-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 64px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="badge">Affordable social media management for small businesses</div>
+      <h1>Blossom Social</h1>
+      <p class="subheading">
+        Helping local businesses stay active online, look professional, and show up better in local searches with affordable monthly management.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#pricing">View Pricing</a>
+        <a class="btn btn-secondary" href="#contact">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">New Pricing</h2>
+      <p class="section-copy">
+        Simple, affordable packages made for busy business owners who want to stay visible without doing everything themselves.
+      </p>
+
+      <div class="promo">
+        <p><strong>Intro Offer:</strong> First 3 months for <strong>$499</strong></p>
+        <p>Limited-time offer for new clients.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="card">
+          <h3>Starter Presence</h3>
+          <p class="tag">Perfect for businesses that want a basic online presence.</p>
+          <div class="price">$99 <span>/ month</span></div>
+          <ul class="features">
+            <li>Google Business Profile posting</li>
+            <li>Basic optimization</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Local Growth</h3>
+          <p class="tag">Best for businesses that want steady visibility on social media.</p>
+          <div class="price">$199 <span>/ month</span></div>
+          <ul class="features">
+            <li>Google Business Profile posting</li>
+            <li>Facebook or Instagram posting</li>
+            <li>2 posts per week</li>
+            <li>Captions and hashtags</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Full Social Management</h3>
+          <p class="tag">For businesses that want consistent posting and more support.</p>
+          <div class="price">$349 <span>/ month</span></div>
+          <ul class="features">
+            <li>Google Business Profile posting</li>
+            <li>Facebook and Instagram posting</li>
+            <li>4 posts per week</li>
+            <li>Captions, hashtags, and scheduling</li>
+            <li>Light engagement</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="addon">
+        <h3>GBP Setup Add-On</h3>
+        <p>Flat rate for optimal Google Business Profile setup</p>
+        <div class="addon-price">$50</div>
+        <p>We’ll build and optimize your GBP so your business is ready to show up in local searches.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">What Blossom Social Helps With</h2>
+      <p class="section-copy">
+        Keeping your business active online so potential customers see your services, trust your brand, and know how to contact you.
+      </p>
+      <div class="about-grid">
+        <div class="mini-card">
+          <h4>Google Visibility</h4>
+          <p>Stay active on Google with posts and profile updates that help local customers find you.</p>
+        </div>
+        <div class="mini-card">
+          <h4>Consistent Content</h4>
+          <p>Get regular posting on your platforms without having to come up with everything yourself.</p>
+        </div>
+        <div class="mini-card">
+          <h4>Affordable Support</h4>
+          <p>Simple pricing for small businesses that need help growing without agency-level costs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact">
+        <h2 class="section-title">Ready to Get Started?</h2>
+        <p>Message Blossom Social to ask about pricing, setup, or monthly management.</p>
+        <p><strong>Phone:</strong> <a href="tel:8564192473">856-419-2473</a></p>
+        <p><strong>Email:</strong> <a href="mailto:clevy1209@gmail.com">clevy1209@gmail.com</a></p>
+        <p><strong>Facebook:</strong> Blossom Social Co.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Blossom Social. Built to help small businesses grow online.</p>
+    </div>
+  </footer>
+</body>
+</html>
